@@ -1,22 +1,19 @@
 package org.edureka.shipping;
 
 public class ShipmentServiceImpl implements IShipment {
-	private final Map<String, Shipment> shipmentStore = new HashMap<>();
-
 	@Override
 	public Shipment addShipment(Shipment shipment) {
-		shipmentStore.put(shipment.getResourceId(), shipment);
-		return shipment;
+		return Utilities.saveShipment(shipment);
 	}
 
 	@Override
 	public boolean deleteShipment(String resourceId) {
-		return shipmentStore.remove(resourceId) != null;
+		return Utilities.deleteShipmentById(resourceId);
 	}
 
 	@Override
 	public Optional<Shipment> getShipment(String resourceId) {
-		return Optional.ofNullable(shipmentStore.get(resourceId));
+		return Utilities.getShipmentById(resourceId);
 	}
 
 }
