@@ -1,11 +1,9 @@
 package org.edureka.shipping;
 
 public interface IShipment {
-	
-	public boolean addShipment();
-	
-	public boolean deleteShipment();
-	
-	public boolean getShipment();
+
+	Shipment addShipment(Shipment shipment);
+	boolean deleteShipment(String resourceId);
+	Optional<Shipment> getShipment(String resourceId);
 	
 }
